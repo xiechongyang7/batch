@@ -1,6 +1,7 @@
 package com.study.batch.config;
 
 import com.study.batch.listener.JobResultListener;
+import com.study.batch.listener.StepResultListener;
 import com.study.batch.tasks.MyTaskOne;
 import com.study.batch.tasks.MyTaskTwo;
 import org.springframework.batch.core.Job;
@@ -35,6 +36,7 @@ public class BatchConfig {
     public Step stepOne(){
         return steps.get("stepOne")
                 .tasklet(new MyTaskOne())
+                .listener(new StepResultListener())//添加监听
                 .build();
     }
 
@@ -42,6 +44,7 @@ public class BatchConfig {
     public Step stepTwo(){
         return steps.get("stepTwo")
                 .tasklet(new MyTaskTwo())
+                .listener(new StepResultListener())//添加监听
                 .build();
     }
 

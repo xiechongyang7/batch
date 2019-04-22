@@ -13,12 +13,12 @@ import org.springframework.batch.core.JobExecutionListener;
 public class JobResultListener extends BaseLogger implements JobExecutionListener{
     @Override
     public void beforeJob(JobExecution jobExecution) {
-        logger.info("called beforeJob()..");
+        logger.info("JobResultListener called beforeJob()..");
 
     }
 
     @Override
     public void afterJob(JobExecution jobExecution) {
-        logger.info("called afterJob()..");
+        logger.info("JobResultListener called afterJob()..");
     }
 }
